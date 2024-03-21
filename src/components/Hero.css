@@ -1,0 +1,18 @@
+.header-img{
+    width: 80%;
+    height: 80%;
+    max-width: 300px;
+    bottom: 12px;
+    left: 30px;
+    position: absolute;
+}
+
+.header-container{
+    width: 60vw;
+    height: 60vw;
+    position: absolute;
+    background-image: url('../assets/canvas.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 10vh;
+}

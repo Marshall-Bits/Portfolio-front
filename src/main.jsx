@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
+import { TalkingProvider } from './context/talking.context.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <TalkingProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </TalkingProvider>
   </React.StrictMode>,
 )

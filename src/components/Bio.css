@@ -1,0 +1,39 @@
+.bio-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    background-color: rgb(236, 161, 103);
+    padding: 20px;
+    margin: 0;
+    border: 5px solid black;
+    animation: slideInFromLeft 300ms ease-in-out;
+    position: absolute;
+    font-size: 0.9rem;
+    top: 40vh;
+    height: 50vh;
+    border-radius: 2rem;
+}
+
+.slide-out {
+    animation: slideOutToRight 300ms ease-in-out;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
