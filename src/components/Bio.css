@@ -16,6 +16,10 @@
     border-radius: 2rem;
 }
 
+.bio-container button {
+    transform: scale(0.6);
+}
+
 .slide-out {
     animation: slideOutToRight 300ms ease-in-out;
 }
@@ -24,6 +28,7 @@
     0% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(0);
     }
@@ -33,6 +38,7 @@
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(100%);
     }

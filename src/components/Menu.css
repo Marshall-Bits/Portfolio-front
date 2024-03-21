@@ -5,9 +5,3 @@
     position: absolute;
     top: 40vh;
 }
-
-
-
-.shrink {
-    transform: scaleY(0);
-}
