@@ -2,10 +2,10 @@ import './App.css'
 import Hero from './components/Hero'
 import Menu from './components/Menu'
 import { Routes, Route } from 'react-router-dom'
-import Bio from './components/Bio'
-import Career from './components/Career'
 import Tools from './components/Tools'
 import Footer from './components/Footer'
+import TalkingContainer from './components/TalkingContainer'
+import info from './info.json'
 
 function App() {
 
@@ -16,11 +16,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Menu />} />
-        <Route path="/bio" element={<Bio />} />
-        <Route path="/career" element={<Career />} />
+        <Route path="/bio" element={<TalkingContainer text={info.bio} />} />
+        <Route path="/career" element={<TalkingContainer text={info.career} />} />
         <Route path="/tools" element={<Tools />} />
-        <Route path="/projects" element={<div>Projects</div>} />
-        <Route path="/contact" element={<div>Contact</div>} />
       </Routes>
       <div id='sky'></div>
       <Footer />

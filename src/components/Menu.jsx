@@ -1,6 +1,4 @@
 import './Menu.css';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Icon from './Icon';
 import bioIcon from '../assets/bio-icon.webp';
 import toolsIcon from '../assets/tools-icon.webp';

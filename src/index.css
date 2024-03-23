@@ -25,13 +25,12 @@ button {
 
 .btn {
   background-image: url('./assets/btn.webp');
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
-  font-size: 2rem;
-  padding: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
-  width: 352px;
-  height: 82px;
+  width: 200px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,8 +38,7 @@ button {
 }
 
 .btn a {
-  width: 352px;
-  height: 82px;
-  transform: scale(0.6);
+  width: 200px;
+  height: 50px;
   text-decoration: none;
 }

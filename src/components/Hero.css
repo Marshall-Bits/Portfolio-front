@@ -1,9 +1,10 @@
 .header-img{
-    width: 80%;
-    height: 80%;
+    width: 60%;
+    height: 60%;
     max-width: 300px;
-    bottom: 12px;
-    left: 30px;
+    bottom: 2.6rem;
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
 }
 
@@ -15,4 +16,20 @@
     background-size: contain;
     background-repeat: no-repeat;
     top: 10vh;
+    animation: upAndDownLoop 5s infinite;
+}
+
+@keyframes upAndDownLoop {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+    
 }
