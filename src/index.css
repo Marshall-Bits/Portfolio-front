@@ -20,12 +20,15 @@
 
 button {
   background-color: transparent;
+  border: none;
+}
+
+.btn {
   background-image: url('./assets/btn.webp');
   background-size: cover;
   background-repeat: no-repeat;
   font-size: 2rem;
   padding: 1rem;
-  border: none;
   cursor: pointer;
   width: 352px;
   height: 82px;
@@ -35,7 +38,7 @@ button {
   color: #fff;
 }
 
-a {
+.btn a {
   width: 352px;
   height: 82px;
   transform: scale(0.6);

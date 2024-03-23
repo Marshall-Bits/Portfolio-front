@@ -3,6 +3,8 @@ import Hero from './components/Hero'
 import Menu from './components/Menu'
 import { Routes, Route } from 'react-router-dom'
 import Bio from './components/Bio'
+import Career from './components/Career'
+import Tools from './components/Tools'
 import Footer from './components/Footer'
 
 function App() {
@@ -15,8 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Menu />} />
         <Route path="/bio" element={<Bio />} />
-        <Route path="/career" element={<div>Career</div>} />
-        <Route path="/stack" element={<div>Stack</div>} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/tools" element={<Tools />} />
         <Route path="/projects" element={<div>Projects</div>} />
         <Route path="/contact" element={<div>Contact</div>} />
       </Routes>

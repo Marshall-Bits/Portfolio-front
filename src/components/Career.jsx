@@ -7,12 +7,12 @@ import talk01 from '../assets/talk01.mp3';
 import talk02 from '../assets/talk02.mp3';
 import back from '../assets/back.mp3';
 
-function Bio() {
+function Career() {
     const { setIsTalking } = useContext(talkingContext);
     const [isFading, setIsFading] = useState(false);
     const navigate = useNavigate();
     const [typedText, setTypedText] = useState('');
-    const text = "I'm a music producer and developer, passionate about exploring and building from the ground. My approach is rooted in humility, thriving within supportive teams that value inclusivity and respect.";
+    const text = "I made my first website at the age of 15, then I started using tools like Flash or Dreamweaver, I've worked on a variety of projects, from alexa apps to the Volkswagen Spain website. After that I started teaching at Ironhack, fostering the next generation of developers. ";
     const i = useRef(0);
     const intervalId = useRef(null);
     
@@ -61,11 +61,11 @@ function Bio() {
 
     return (
         <div className={`container ${isFading && "slide-out"}`} onClick={handleContainerClick}>
-            <h2>Bio</h2>
+            <h2>Career</h2>
             <p>{typedText}</p>
             <button className='btn' onClick={handleGoBack}>Back</button>
         </div>
     )
 }
 
-export default Bio;
+export default Career;

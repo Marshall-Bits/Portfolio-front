@@ -1,4 +1,4 @@
-.bio-container {
+.container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -8,20 +8,20 @@
     padding: 20px;
     margin: 0;
     border: 5px solid black;
-    animation: slideInFromLeft 300ms ease-in-out;
+    animation: slideInFromLeft 300ms ease-in-out forwards;
     position: absolute;
     font-size: 0.9rem;
     top: 40vh;
-    height: 50vh;
-    border-radius: 2rem;
+    height: 40vh;
+    border-radius: 1rem;
 }
 
-.bio-container button {
+.container button {
     transform: scale(0.6);
 }
 
 .slide-out {
-    animation: slideOutToRight 300ms ease-in-out;
+    animation: slideOutToRight 300ms ease-in-out forwards;
 }
 
 @keyframes slideInFromLeft {

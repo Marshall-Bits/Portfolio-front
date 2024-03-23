@@ -1,33 +1,24 @@
 import './Menu.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
+import Icon from './Icon';
+import bioIcon from '../assets/bio-icon.webp';
+import toolsIcon from '../assets/tools-icon.webp';
+import cvIcon from '../assets/cv-icon.webp';
+import ghIcon from '../assets/gh-icon.webp';
+import inIcon from '../assets/in-icon.webp';
 
 function Menu() {
-    const [isShrink, setIsShrink] = useState(false);
-    const hideMenu = () => {
-
-    }
 
     return (
         <>
-            <div className={`menu-container ${isShrink && "shrink"}`}>
-                <Link to="/bio">
-                    <button>Bio</button>
-                </Link>
-                <Link to="/career">
-                    <button>Career</button>
-                </Link>
-                <Link to="/stack">
-                    <button>Stack</button>
-                </Link>
-                <Link to="/projects">
-                    <button>Projects</button>
-                </Link>
-                <Link to="/contact">
-                    <button>Contact</button>
-                </Link>
-            </div>
+            <section className='icons-container'>
+                <Icon image={bioIcon} page="/bio" />
+                <Icon image={toolsIcon} page="/tools" />
+                <Icon image={cvIcon} page="/career" />
+                <Icon image={ghIcon} url="https://github.com/Marshall-Bits" />
+                <Icon image={inIcon} url="https://www.linkedin.com/in/marcel-bosch-developer/" />
+            </section>
         </>
     );
 }
