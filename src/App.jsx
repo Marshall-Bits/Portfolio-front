@@ -6,12 +6,14 @@ import Tools from './components/Tools'
 import Footer from './components/Footer'
 import TalkingContainer from './components/TalkingContainer'
 import info from './info.json'
+import spaceShip from './assets/spaceship.webp'
 
 function App() {
 
   return (
     <>
       <div id='space'></div>
+      <img id='spaceship' src={spaceShip} alt="spaceship" />
       <Hero />
 
       <Routes>

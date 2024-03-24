@@ -42,3 +42,29 @@ button {
   height: 50px;
   text-decoration: none;
 }
+
+#spaceship {
+  position: absolute;
+  width: 3rem;
+  top: 0;
+  left: 50%;
+  animation: comeAndGo 30s ease-in-out infinite;
+}
+
+@keyframes comeAndGo {
+  0% {
+    transform: translateX(100vw) rotate(-90deg);
+  }
+
+  50% {
+    transform: translateX(-100vw) rotate(-90deg);
+  }
+
+  50.1% {
+    transform: translateX(-100vw) rotate(90deg);
+  }
+
+  100% {
+    transform: translateX(100vw) rotate(90deg);
+  }
+}

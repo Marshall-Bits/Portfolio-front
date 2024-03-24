@@ -4,10 +4,13 @@
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    background-color: rgb(236, 161, 103);
+    background-color: #244861;
+    color: white;
     padding: 1.5rem;
     margin: 0;
     border: 5px solid black;
+    border-top: 5px solid #436883;
+    border-right: 5px solid #233542;
     animation: slideInFromLeft 300ms ease-in-out forwards;
     position: absolute;
     font-size: 0.9rem;
