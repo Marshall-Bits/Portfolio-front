@@ -15,7 +15,7 @@ const Icon = ({ image, url, page }) => {
     };
 
     return (
-        <button onClick={handleClick}>
+        <button className='menu-button' onClick={handleClick}>
             <img src={image} alt="icon" />
         </button>
     );

@@ -7,6 +7,7 @@ import Footer from './components/Footer'
 import TalkingContainer from './components/TalkingContainer'
 import info from './info.json'
 import spaceShip from './assets/spaceship.webp'
+import cables from './assets/cables.webp'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <>
       <div id='space'></div>
       <img id='spaceship' src={spaceShip} alt="spaceship" />
+      <img id='cables' src={cables} alt="cables" />
       <Hero />
 
       <Routes>

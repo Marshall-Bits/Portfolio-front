@@ -58,7 +58,7 @@ function TalkingContainer({ text }) {
 
     return (
         <div className={`container ${isFading && "slide-out"}`} onClick={handleContainerClick}>
-            <p>{typedText}</p>
+            <p className='typed-text'>{typedText}</p>
             <button className='btn' onClick={handleGoBack}>Back</button>
         </div>
     )
