@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import talk01 from '../assets/talk01.mp3';
 import talk02 from '../assets/talk02.mp3';
 import back from '../assets/back.mp3';
+import canvasButton from '../assets/canvas-button.webp';
 
 function TalkingContainer({ text }) {
     const { setIsTalking } = useContext(talkingContext);
@@ -57,10 +58,13 @@ function TalkingContainer({ text }) {
     }, []);
 
     return (
-        <div className={`container ${isFading && "slide-out"}`} onClick={handleContainerClick}>
-            <p className='typed-text'>{typedText}</p>
-            <button className='btn' onClick={handleGoBack}>Back</button>
-        </div>
+        <>
+            <div className={`container ${isFading && "slide-out"}`} onClick={handleContainerClick}>
+                <p className='typed-text'>{typedText}</p>
+                {/* <button className='btn' onClick={handleGoBack}>Back</button> */}
+                <img src={canvasButton} alt="canvas" className="canvas-button" onClick={handleGoBack} />
+            </div>
+        </>
     )
 }
 

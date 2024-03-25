@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import back from '../assets/back.mp3';
 import { useNavigate } from 'react-router-dom';
+import canvasButton from '../assets/canvas-button.webp';
 
 
 function Tools() {
@@ -33,7 +34,7 @@ function Tools() {
                 <li>Jira</li>
                 <li>Confluence</li>
             </ul>
-            <button className='btn' onClick={handleGoBack}>Back</button>
+            <img src={canvasButton} alt="canvas" className="canvas-button" onClick={handleGoBack} />
         </div>
     );
 }

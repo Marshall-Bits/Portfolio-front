@@ -1,4 +1,5 @@
 import './App.css'
+import { useEffect } from 'react'
 import Hero from './components/Hero'
 import Menu from './components/Menu'
 import { Routes, Route } from 'react-router-dom'

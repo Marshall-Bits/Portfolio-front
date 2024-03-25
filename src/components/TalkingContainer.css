@@ -1,16 +1,16 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 90%;
-    background-color: #244861;
+    background-image: url("../assets/canvas-menu.webp");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     color: white;
-    padding: 1.5rem;
+    padding: 3rem;
+    padding-bottom: 2rem;
     margin: 0;
-    border: 5px solid black;
-    border-top: 5px solid #436883;
-    border-right: 5px solid #233542;
     animation: slideDownAndGrow 300ms ease-in-out forwards;
     position: absolute;
     font-size: 0.9rem;
@@ -19,12 +19,30 @@
     border-radius: 1rem;
 }
 
-.typed-text{
-    height: calc(100% - 50px);
+.typed-text {
+    overflow-y: scroll;
+}
+
+.canvas-button {
+    position: absolute;
+    top: 95%;
+    z-index: -1;
+    animation: buttonAppear 500ms ease-in-out forwards;
 }
 
 .slide-out {
     animation: slideUpAndShrink 400ms ease-in-out forwards;
+}
+
+@keyframes buttonAppear {
+    0% {
+        transform: translateY(-30%) rotate3d(1, 0, 0, 160deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate3d(1, 0, 0, 0deg);
+    }
+
 }
 
 @keyframes slideUpAndShrink {
@@ -37,7 +55,7 @@
     }
 }
 
-@media screen and (max-height: 790px){
+@media screen and (max-height: 790px) {
     .container {
         font-size: 0.8rem;
         top: 45vh;

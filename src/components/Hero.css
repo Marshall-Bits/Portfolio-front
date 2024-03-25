@@ -15,7 +15,7 @@
     background-image: url('../assets/canvas.webp');
     background-size: contain;
     background-repeat: no-repeat;
-    top: 10vh;
+    top: 6vh;
     animation: upAndDownLoop 5s infinite;
 }
 
