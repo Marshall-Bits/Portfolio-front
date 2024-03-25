@@ -19,6 +19,49 @@
     z-index: -99;
 }
 
+#stars {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20vh;
+    background-image: url('./assets/stars.webp');
+    background-size: contain;
+    z-index: -99;
+}
+
+#moon {
+    position: absolute;
+    top: 2vh;
+    right: 5vw;
+    width: 5rem;
+    z-index: -98;
+}
+
+#red-planet {
+    position: absolute;
+    top: 2.5rem;
+    left: 1rem;
+    width: 3rem;
+    z-index: -98;
+}
+
+#blue-planet {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    width: 3rem;
+    z-index: -98;
+}
+
+#purple-planet {
+    position: absolute;
+    top: 3rem;
+    left: 20%;
+    width: 3rem;
+    z-index: -98;
+    display: none;
+}
+
 #cables {
     position: absolute;
     top: 25vh;
@@ -30,12 +73,30 @@
     0% {
         transform: scaleY(0.8) translateY(0)
     }
-    
+
     50% {
         transform: scaleY(1) translateY(-1rem)
     }
-    
+
     100% {
         transform: scaleY(0.8) translateY(0)
     }
+}
+
+@media screen and (min-width: 635px) {
+    #space {
+        display: none;
+    }
+
+    #purple-planet {
+        display: block;
+    }
+}
+
+@media screen and (max-height: 759px) and (width> 635px){
+   #cables {
+      animation: none;
+      transform: rotate(90deg);
+      z-index: -1;
+   }
 }

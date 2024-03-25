@@ -1,16 +1,18 @@
 .header-img{
-    width: 60%;
-    height: 60%;
+    width: 40%;
+    height: 40%;
     max-width: 300px;
-    bottom: 2.6rem;
+    bottom: 40%;
     left: 50%;
     transform: translateX(-50%);
     position: absolute;
 }
 
 .header-container{
-    width: 60vw;
-    height: 60vw;
+    width: 90vw;
+    max-width: 400px; 
+    height: 90vw;
+    max-height: 400px;
     position: absolute;
     background-image: url('../assets/canvas.webp');
     background-size: contain;
@@ -32,4 +34,22 @@
         transform: translateY(0);
     }
     
+}
+
+@media screen and (max-height: 759px) and (width> 635px) {
+    .header-container {
+        font-size: 0.7rem;
+        top: 62vh;
+        width: 450px;
+        left: 1%;
+        animation: none;
+        transform: translateY(-50%);
+    }
+    .header-img {
+        height: auto;
+        width: 35%;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
 }

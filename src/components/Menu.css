@@ -11,6 +11,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     width: 60vw;
+    max-width: 250px;
     position: absolute;
     padding: 2rem;
     gap: 1rem;
@@ -21,16 +22,27 @@
     animation: slideDownAndGrow 300ms;
 }
 
-.menu-button{
+.menu-button {
     filter: drop-shadow(-2px 2px 4px #000000);
 }
 
 @keyframes slideDownAndGrow {
     0% {
-        transform:  scaleY(0.6) rotateY(-80deg);
+        transform: scaleY(0.6) rotateY(-80deg);
     }
 
     100% {
         transform: scaleY(1) rotateY(0deg);
     }
+}
+
+@media screen and (max-height: 759px) and (width> 635px) {
+    
+    
+    .icons-container {
+        top: 10vh;
+        right: 10vh;
+    
+    }
+
 }

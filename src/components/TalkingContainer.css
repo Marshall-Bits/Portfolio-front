@@ -4,6 +4,7 @@
     justify-content: center;
     align-items: center;
     width: 90%;
+    max-width: 400px;
     background-image: url("../assets/canvas-menu.webp");
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -17,10 +18,20 @@
     top: 40vh;
     height: 40vh;
     border-radius: 1rem;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+
 
 .typed-text {
     overflow-y: scroll;
+    width: 100%;
 }
 
 .canvas-button {
@@ -60,5 +71,14 @@
         font-size: 0.8rem;
         top: 45vh;
         height: 45vh;
+    }
+}
+
+@media screen and (height < 759px) and (width> 635px) {
+    .container {
+        font-size: 0.7rem;
+        top: 20vh;
+        height: 60vh;
+        left: 50%;
     }
 }
