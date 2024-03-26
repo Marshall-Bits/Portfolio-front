@@ -1,3 +1,10 @@
+.canvas-button {
+    position: absolute;
+    top: 95%;
+    z-index: -1;
+    animation: buttonAppear 500ms ease-in-out forwards;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -25,20 +32,13 @@
     }
 }
 
+.slide-out {
+    animation: slideUpAndShrink 400ms ease-in-out forwards;
+}
+
 .typed-text {
     overflow-y: scroll;
     width: 100%;
-}
-
-.canvas-button {
-    position: absolute;
-    top: 95%;
-    z-index: -1;
-    animation: buttonAppear 500ms ease-in-out forwards;
-}
-
-.slide-out {
-    animation: slideUpAndShrink 400ms ease-in-out forwards;
 }
 
 @keyframes buttonAppear {
@@ -54,11 +54,11 @@
 
 @keyframes slideUpAndShrink {
     0% {
-        transform: translateY(0) scaleY(1);
+        transform:  rotate3d(0, 1, 0, 0deg);
     }
 
     100% {
-        transform: translateY(-10vh) scaleY(0);
+        transform:  rotate3d(0, 1, 0, 90deg);
     }
 }
 

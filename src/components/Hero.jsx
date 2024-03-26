@@ -1,6 +1,7 @@
 import './Hero.css';
-import { talkingContext } from '../context/talking.context';
 import { useContext } from 'react';
+import { talkingContext } from '../context/talking.context';
+
 import staticImage from '../assets/profile-pic-static.gif';
 import talkingImage from '../assets/profile-pic.gif';
 

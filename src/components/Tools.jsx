@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import back from '../assets/back.mp3';
 import { useNavigate } from 'react-router-dom';
-import canvasButton from '../assets/canvas-button.webp';
 
+import canvasButton from '../assets/canvas-button.webp';
+import back from '../assets/back.mp3';
 
 function Tools() {
     const [isFading, setIsFading] = useState(false);
@@ -16,6 +16,7 @@ function Tools() {
             navigate("/");
         }, 300);
     };
+
     return (
         <div className={`container ${isFading && "slide-out"}`}>
             <ul >

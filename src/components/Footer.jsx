@@ -1,4 +1,5 @@
 import './Footer.css';
+
 import bgLeft from '../assets/bg-mob-bottom-left.webp';
 import bgRight from '../assets/bg-mob-bottom-right.webp';
 

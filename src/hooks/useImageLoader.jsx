@@ -10,8 +10,6 @@ function useImageLoader(imageSources) {
       return img;
     });
 
-    console.log(images);
-
     Promise.all(images.map(img => new Promise((resolve, reject) => {
       img.onload = resolve;
       img.onerror = reject;

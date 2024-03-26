@@ -1,5 +1,5 @@
-import audioSelect from '../assets/select.mp3';
 import { useNavigate } from 'react-router-dom';
+import audioSelect from '../assets/select.mp3';
 
 const Icon = ({ image, url, page }) => {
     const navigate = useNavigate();
