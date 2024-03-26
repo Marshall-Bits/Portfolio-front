@@ -14,6 +14,8 @@ import piniaLogo from '../assets/pinia-logo.webp';
 import reactLogo from '../assets/react-logo.webp';
 import reduxLogo from '../assets/redux-logo.webp';
 import expressLogo from '../assets/express-logo.webp';
+import csharpLogo from '../assets/csharp-logo.webp';
+import unityLogo from '../assets/unity-logo.webp';
 
 function Tools() {
     const [isFading, setIsFading] = useState(false);
@@ -25,7 +27,7 @@ function Tools() {
     const playerRef = useRef(null);
     const rewardRef = useRef(null);
     const gameCanvasRef = useRef(null);
-    const logos = [nodeLogo, expressLogo, vueLogo, piniaLogo, reactLogo, reduxLogo];
+    const logos = [nodeLogo, expressLogo, vueLogo, piniaLogo, reactLogo, reduxLogo, csharpLogo, unityLogo];
 
     const handelWin = () => {
         setPlayerSprite(playerWin);
