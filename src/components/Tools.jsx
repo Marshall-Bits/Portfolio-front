@@ -1,6 +1,7 @@
 import './Tools.css';
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useImageLoader from '../hooks/useImageLoader';
 
 import back from '../assets/back.mp3';
 import win from '../assets/win.mp3';
@@ -24,11 +25,14 @@ function Tools() {
     const [rewards, setRewards] = useState([]);
     const [playerStyle, setPlayerStyle] = useState({ bottom: 0, left: 0 });
     const [logoIndex, setLogoIndex] = useState(0);
+    const [score, setScore] = useState(0);
     const navigate = useNavigate();
     const playerRef = useRef(null);
     const rewardRef = useRef(null);
     const gameCanvasRef = useRef(null);
     const logos = [nodeLogo, expressLogo, vueLogo, piniaLogo, reactLogo, reduxLogo, csharpLogo, unityLogo];
+
+    const loading = useImageLoader([...logos, playerImage, playerWin, canvasButton, buttonL, buttonR]);
 
     const handelWin = () => {
         setPlayerSprite(playerWin);
@@ -45,47 +49,51 @@ function Tools() {
 
         rewardsElements.forEach((reward) => {
             const rewardPosition = reward.getBoundingClientRect();
-
             if (
                 player.x < rewardPosition.x + rewardPosition.width &&
                 player.x + player.width > rewardPosition.x &&
                 player.y < rewardPosition.y + rewardPosition.height &&
                 player.y + player.height > rewardPosition.y
-                ) {
-                    reward.remove();
-                    handelWin();
-                }
-            });
-        }
-        
-        useEffect(() => {
-        const interval = setInterval(() => {
-            setLogoIndex((currentIndex) => (currentIndex + 1) % logos.length);
-            const rewardPercentageWidth = (50 / gameCanvasRef.current.offsetWidth) * 100;
-            const newReward = {
-                id: Math.random(),
-                bottom: 100,
-                left: Math.random() * (100 - rewardPercentageWidth)
-            };
-            setRewards((currentRewards) => [...currentRewards, newReward]);
-        }, 2000);
-
-        return () => clearInterval(interval);
-    }, []);
+            ) {
+                reward.remove();
+                setScore((prevScore) => prevScore + 1);
+                handelWin();
+            }
+        });
+    }
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setRewards((currentRewards) =>
-                currentRewards.map((reward) => ({
-                    ...reward,
-                    bottom: reward.bottom - 5
-                })).filter((reward) => reward.bottom > -100)
-            );
-            checkCollision();
-        }, 100);
+        if (!loading) {
+            const interval = setInterval(() => {
+                setLogoIndex((currentIndex) => (currentIndex + 1) % logos.length);
+                const rewardPercentageWidth = (50 / gameCanvasRef.current.offsetWidth) * 100;
+                const newReward = {
+                    id: Math.random(),
+                    bottom: 100,
+                    left: Math.random() * (100 - rewardPercentageWidth)
+                };
+                setRewards((currentRewards) => [...currentRewards, newReward]);
+            }, 2000);
 
-        return () => clearInterval(interval);
-    }, []);
+            return () => clearInterval(interval);
+        }
+    }, [loading]);
+
+    useEffect(() => {
+        if (!loading) {
+            const interval = setInterval(() => {
+                setRewards((currentRewards) =>
+                    currentRewards.map((reward) => ({
+                        ...reward,
+                        bottom: reward.bottom - 5
+                    })).filter((reward) => reward.bottom > -100)
+                );
+                checkCollision();
+            }, 100);
+         
+            return () => clearInterval(interval);
+        }
+    }, [loading]);
 
     const renderRewards = () => {
         return rewards.map((reward) => (
@@ -129,13 +137,19 @@ function Tools() {
     return (
         <div className={`container ${isFading && "slide-out"}`}>
 
-            <section ref={gameCanvasRef} id='game-canvas'>
-                {renderRewards()}
-                <img src={playerSprite} ref={playerRef} style={playerStyle} id='player' />
-            </section>
-            <img src={canvasButton} alt="go back button" className="canvas-button" onClick={handleGoBack} />
-            <img src={buttonL} onClick={() => movePlayer("left")} className='gamepad-L' />
-            <img src={buttonR} onClick={() => movePlayer("right")} className='gamepad-R' />
+            {loading ? <h2>Loading...</h2> :
+                <>
+                    <section ref={gameCanvasRef} id='game-canvas'>
+                        <h3 className='score'>Catch all the technologies I know!</h3>
+                        <h3 className='score'>Score: {score}</h3>
+                        {renderRewards()}
+                        <img src={playerSprite} ref={playerRef} style={playerStyle} id='player' />
+                    </section>
+                    <img src={canvasButton} alt="go back button" className="canvas-button" onClick={handleGoBack} />
+                    <img src={buttonL} onClick={() => movePlayer("left")} className='gamepad-L' />
+                    <img src={buttonR} onClick={() => movePlayer("right")} className='gamepad-R' />
+                </>
+            }
         </div>
     );
 }

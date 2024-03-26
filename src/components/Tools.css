@@ -37,3 +37,10 @@
     width: 50px;
     height: 50px;
 }
+
+.score{
+    color: black;
+    padding-top: 1rem;
+    font-size: 0.7rem;
+    text-align: center;
+}
