@@ -5,16 +5,27 @@ import { useNavigate } from 'react-router-dom';
 import canvasButton from '../assets/canvas-button.webp';
 import playerImage from '../assets/player.webp';
 import playerWin from '../assets/player-win.webp';
+import buttonL from '../assets/button-L.webp';
+import buttonR from '../assets/button-R.webp';
 import back from '../assets/back.mp3';
+import nodeLogo from '../assets/node-logo.webp';
+import vueLogo from '../assets/vue-logo.webp';
+import piniaLogo from '../assets/pinia-logo.webp';
+import reactLogo from '../assets/react-logo.webp';
+import reduxLogo from '../assets/redux-logo.webp';
+import expressLogo from '../assets/express-logo.webp';
 
 function Tools() {
     const [isFading, setIsFading] = useState(false);
     const [playerSprite, setPlayerSprite] = useState(playerImage);
     const [rewards, setRewards] = useState([]);
     const [playerStyle, setPlayerStyle] = useState({ bottom: 0, left: 0 });
+    const [logoIndex, setLogoIndex] = useState(0);
     const navigate = useNavigate();
     const playerRef = useRef(null);
+    const rewardRef = useRef(null);
     const gameCanvasRef = useRef(null);
+    const logos = [nodeLogo, expressLogo, vueLogo, piniaLogo, reactLogo, reduxLogo];
 
     const handelWin = () => {
         setPlayerSprite(playerWin);
@@ -27,7 +38,7 @@ function Tools() {
 
     const checkCollision = () => {
         const player = playerRef.current.getBoundingClientRect();
-        const rewardsElements = document.querySelectorAll('#game-canvas p');
+        const rewardsElements = document.querySelectorAll('#game-canvas .reward');
 
         rewardsElements.forEach((reward) => {
             const rewardPosition = reward.getBoundingClientRect();
@@ -37,19 +48,21 @@ function Tools() {
                 player.x + player.width > rewardPosition.x &&
                 player.y < rewardPosition.y + rewardPosition.height &&
                 player.y + player.height > rewardPosition.y
-            ) {
-                reward.remove();
-                handelWin();
-            }
-        });
-    }
-
-    useEffect(() => {
+                ) {
+                    reward.remove();
+                    handelWin();
+                }
+            });
+        }
+        
+        useEffect(() => {
         const interval = setInterval(() => {
+            setLogoIndex((currentIndex) => (currentIndex + 1) % logos.length);
+            const rewardPercentageWidth = (50 / gameCanvasRef.current.offsetWidth) * 100;
             const newReward = {
                 id: Math.random(),
                 bottom: 100,
-                left: Math.random() * 100
+                left: Math.random() * (100 - rewardPercentageWidth)
             };
             setRewards((currentRewards) => [...currentRewards, newReward]);
         }, 2000);
@@ -74,7 +87,7 @@ function Tools() {
     const renderRewards = () => {
         return rewards.map((reward) => (
             <div key={reward.id} style={{ position: 'absolute', bottom: `${reward.bottom}%`, left: `${reward.left}%` }}>
-                <p>❤️</p>
+                <img ref={rewardRef} className='reward' src={logos[logoIndex]} alt="reward" />
             </div>
         ));
     };
@@ -118,8 +131,8 @@ function Tools() {
                 <img src={playerSprite} ref={playerRef} style={playerStyle} id='player' />
             </section>
             <img src={canvasButton} alt="go back button" className="canvas-button" onClick={handleGoBack} />
-            <button onClick={() => movePlayer("left")} className='gamepad-L'>L</button>
-            <button onClick={() => movePlayer("right")} className='gamepad-R'>R</button>
+            <img src={buttonL} onClick={() => movePlayer("left")} className='gamepad-L' />
+            <img src={buttonR} onClick={() => movePlayer("right")} className='gamepad-R' />
         </div>
     );
 }
