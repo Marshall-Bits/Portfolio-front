@@ -18,16 +18,12 @@
     top: 40vh;
     height: 40vh;
     border-radius: 1rem;
-
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     ::-webkit-scrollbar {
         display: none;
     }
-
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
-
-
 
 .typed-text {
     overflow-y: scroll;
