@@ -2,12 +2,13 @@ import './Tools.css';
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import back from '../assets/back.mp3';
+import win from '../assets/win.mp3';
 import canvasButton from '../assets/canvas-button.webp';
 import playerImage from '../assets/player.webp';
 import playerWin from '../assets/player-win.webp';
 import buttonL from '../assets/button-L.webp';
 import buttonR from '../assets/button-R.webp';
-import back from '../assets/back.mp3';
 import nodeLogo from '../assets/node-logo.webp';
 import vueLogo from '../assets/vue-logo.webp';
 import piniaLogo from '../assets/pinia-logo.webp';
@@ -31,7 +32,7 @@ function Tools() {
 
     const handelWin = () => {
         setPlayerSprite(playerWin);
-        const audio = new Audio(back);
+        const audio = new Audio(win);
         audio.play();
         setTimeout(() => {
             setPlayerSprite(playerImage);
