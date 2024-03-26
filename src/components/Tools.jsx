@@ -3,15 +3,27 @@ import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import canvasButton from '../assets/canvas-button.webp';
+import playerImage from '../assets/player.webp';
+import playerWin from '../assets/player-win.webp';
 import back from '../assets/back.mp3';
 
 function Tools() {
     const [isFading, setIsFading] = useState(false);
+    const [playerSprite, setPlayerSprite] = useState(playerImage);
     const [rewards, setRewards] = useState([]);
     const [playerStyle, setPlayerStyle] = useState({ bottom: 0, left: 0 });
     const navigate = useNavigate();
     const playerRef = useRef(null);
     const gameCanvasRef = useRef(null);
+
+    const handelWin = () => {
+        setPlayerSprite(playerWin);
+        const audio = new Audio(back);
+        audio.play();
+        setTimeout(() => {
+            setPlayerSprite(playerImage);
+        }, 300);
+    };
 
     const checkCollision = () => {
         const player = playerRef.current.getBoundingClientRect();
@@ -27,6 +39,7 @@ function Tools() {
                 player.y + player.height > rewardPosition.y
             ) {
                 reward.remove();
+                handelWin();
             }
         });
     }
@@ -34,7 +47,7 @@ function Tools() {
     useEffect(() => {
         const interval = setInterval(() => {
             const newReward = {
-                id: Math.floor(Math.random() * 100),
+                id: Math.random(),
                 bottom: 100,
                 left: Math.random() * 100
             };
@@ -61,7 +74,7 @@ function Tools() {
     const renderRewards = () => {
         return rewards.map((reward) => (
             <div key={reward.id} style={{ position: 'absolute', bottom: `${reward.bottom}%`, left: `${reward.left}%` }}>
-                <p>Hi</p>
+                <p>❤️</p>
             </div>
         ));
     };
@@ -75,10 +88,13 @@ function Tools() {
             let currentLeft = parseFloat(newStyle.left);
 
             if (direction === "left") {
+                newStyle.transform = "scaleX(-1)";
                 currentLeft = Math.max(0, currentLeft - 10);
             } else {
+                newStyle.transform = "scaleX(1)";
                 currentLeft = Math.min(100 - playerPercentageWidth, currentLeft + 10);
             }
+
             newStyle.left = `${currentLeft}%`;
             return newStyle;
         });
@@ -96,9 +112,10 @@ function Tools() {
 
     return (
         <div className={`container ${isFading && "slide-out"}`}>
+
             <section ref={gameCanvasRef} id='game-canvas'>
                 {renderRewards()}
-                <div ref={playerRef} style={playerStyle} id='player'></div>
+                <img src={playerSprite} ref={playerRef} style={playerStyle} id='player' />
             </section>
             <img src={canvasButton} alt="go back button" className="canvas-button" onClick={handleGoBack} />
             <button onClick={() => movePlayer("left")} className='gamepad-L'>L</button>
