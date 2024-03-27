@@ -4,6 +4,8 @@
     width: 100%;
     height: 100%;
     overflow-y: hidden;
+    user-select: none;
+    line-height: 2; /* Adjust the value to increase or decrease the space between lines */
 }
 
 #player{
@@ -12,6 +14,10 @@
     height: 60px;
     left: 0;
     bottom: 0;
+}
+
+#game-canvas ul{
+    font-size: .5rem;
 }
 
 .gamepad-L{
@@ -39,7 +45,6 @@
 }
 
 .score{
-    color: black;
     padding-top: 1rem;
     font-size: 0.7rem;
     text-align: center;
