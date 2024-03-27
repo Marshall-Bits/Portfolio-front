@@ -27,13 +27,14 @@
     border-radius: 1rem;
     -ms-overflow-style: none;
     scrollbar-width: none;
+
     ::-webkit-scrollbar {
         display: none;
     }
 }
 
 .slide-out {
-    animation: slideUpAndShrink 400ms ease-in-out forwards;
+    animation: slideUpAndShrink 300ms ease-in-out forwards;
 }
 
 .typed-text {
@@ -54,11 +55,11 @@
 
 @keyframes slideUpAndShrink {
     0% {
-        transform:  rotate3d(0, 1, 0, 0deg);
+        transform: perspective(700px) rotate3d(0, 1, 0, 0deg);
     }
 
     100% {
-        transform:  rotate3d(0, 1, 0, 90deg);
+        transform: perspective(700px) rotate3d(0, 1, 0, -90deg);
     }
 }
 
