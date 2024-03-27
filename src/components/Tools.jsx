@@ -11,6 +11,7 @@ import playerImage from '../assets/player.webp';
 import playerWin from '../assets/player-win.webp';
 import buttonL from '../assets/button-L.webp';
 import buttonR from '../assets/button-R.webp';
+import JSlogo from '../assets/JS-logo.webp';
 import nodeLogo from '../assets/node-logo.webp';
 import vueLogo from '../assets/vue-logo.webp';
 import piniaLogo from '../assets/pinia-logo.webp';
@@ -41,8 +42,8 @@ function Tools() {
     const rewardRef = useRef(null);
     const gameCanvasRef = useRef(null);
 
-    const logos = [nodeLogo, expressLogo, vueLogo, piniaLogo, reactLogo, reduxLogo, csharpLogo, unityLogo];
-    const techs = ['Node.js', 'Express.js', 'Vue.js', 'Pinia', 'React.js', 'Redux', 'C#', 'Unity'];
+    const logos = [JSlogo, nodeLogo, expressLogo, vueLogo, piniaLogo, reactLogo, reduxLogo, csharpLogo, unityLogo];
+    const techs = ['JavaScript', 'Node.js', 'Express.js', 'Vue.js', 'Pinia', 'React.js', 'Redux', 'C#', 'Unity'];
 
     const loading = useImageLoader([...logos, playerImage, playerWin, canvasButton, buttonL, buttonR]);
 
@@ -183,7 +184,7 @@ function Tools() {
             case score >= 15:
                 setTitle('Wait, are you still playing?');
                 break;
-            case score >= 8:
+            case score >= 9:
                 setTitle('Well done! You caught all the techs!');
                 break;
             case score < 0:
