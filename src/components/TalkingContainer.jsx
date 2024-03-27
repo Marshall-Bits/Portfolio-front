@@ -2,6 +2,7 @@ import './TalkingContainer.css';
 import { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { talkingContext } from '../context/talking.context';
+import { soundContext } from '../context/sound.context';
 
 import canvasButton from '../assets/canvas-button.webp';
 
@@ -11,6 +12,7 @@ import talk02 from '../assets/talk02.mp3';
 
 function TalkingContainer({ text }) {
     const { setIsTalking } = useContext(talkingContext);
+    const { isMuted } = useContext(soundContext);
     const [isFading, setIsFading] = useState(false);
     const navigate = useNavigate();
     const [typedText, setTypedText] = useState('');
@@ -21,7 +23,7 @@ function TalkingContainer({ text }) {
         setIsFading(true);
         setIsTalking(false);
         const audio = new Audio(back);
-        audio.play();
+        !isMuted && audio.play();
         setTimeout(() => {
             navigate("/");
         }, 300);
@@ -40,7 +42,7 @@ function TalkingContainer({ text }) {
                 setTypedText((typedText) => typedText + text.charAt(i.current));
                 const audio = new Audio(Math.random() < 0.5 ? talk01 : talk02);
                 if (text.charAt(i.current) !== " ") {
-                    audio.play();
+                    !isMuted && audio.play();
                 } else {
                     audio.pause();
                 }

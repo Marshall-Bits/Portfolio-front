@@ -1,7 +1,8 @@
 import './Tools.css';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useImageLoader from '../hooks/useImageLoader';
+import { soundContext } from '../context/sound.context';
 
 import back from '../assets/back.mp3';
 import win from '../assets/win.mp3';
@@ -29,6 +30,8 @@ function Tools() {
     const [displayedTechs, setDisplayedTechs] = useState([]);
     const [title, setTitle] = useState('Catch all the techs I know!');
 
+    const { isMuted } = useContext(soundContext);
+
     const navigate = useNavigate();
 
     // use ref to keep track of the current states in the checkCollision function (inside a setInterval)
@@ -46,7 +49,7 @@ function Tools() {
     const handelWin = () => {
         setPlayerSprite(playerWin);
         const audio = new Audio(win);
-        audio.play();
+        !isMuted && audio.play();
         setTimeout(() => {
             setPlayerSprite(playerImage);
         }, 300);
@@ -107,7 +110,7 @@ function Tools() {
     const handleGoBack = () => {
         setIsFading(true);
         const audio = new Audio(back);
-        audio.play();
+        !isMuted && audio.play();
         setTimeout(() => {
             navigate("/");
         }, 300);
