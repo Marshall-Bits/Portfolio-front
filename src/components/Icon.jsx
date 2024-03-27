@@ -11,7 +11,7 @@ const Icon = ({ image, url, page, setIsFading }) => {
 
     const handleClick = () => {
         playAudio();
-        setIsFading(true);
+        !url && setIsFading(true);
         setTimeout(() => {
             url ? window.open(url) : navigate(page);
         }, 300);
