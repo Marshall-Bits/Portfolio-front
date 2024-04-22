@@ -11,7 +11,7 @@
   background-image: url("../assets/canvas-menu.webp");
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  animation: slideDownAndGrow 300ms;
+  animation: rotate-in 300ms;
 }
 
 .menu-button {

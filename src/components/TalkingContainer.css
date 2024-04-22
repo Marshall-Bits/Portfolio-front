@@ -19,7 +19,7 @@
     padding: 3rem;
     padding-bottom: 2rem;
     margin: 0;
-    animation: slideDownAndGrow 300ms ease-in-out forwards;
+    animation: rotate-in 300ms ease-in-out forwards;
     position: absolute;
     font-size: 0.9rem;
     top: 40vh;
@@ -34,7 +34,7 @@
 }
 
 .slide-out {
-    animation: slideUpAndShrink 300ms ease-in-out forwards;
+    animation: rotate-out 300ms ease-in-out forwards;
 }
 
 .typed-text {
@@ -53,7 +53,7 @@
 
 }
 
-@keyframes slideUpAndShrink {
+@keyframes rotate-out {
     0% {
         transform: perspective(700px) rotate3d(0, 1, 0, 0deg);
     }

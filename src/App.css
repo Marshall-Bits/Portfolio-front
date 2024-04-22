@@ -10,7 +10,7 @@
   position: absolute;
   top: 25vh;
   z-index: -98;
-  animation: moveCables 5s infinite;
+  animation: move-cables 5s infinite;
 }
 
 #moon {
@@ -74,7 +74,7 @@
   z-index: -99;
 }
 
-@keyframes moveCables {
+@keyframes move-cables {
   0% {
     transform: scaleY(0.8) translateY(0);
   }
@@ -88,7 +88,7 @@
   }
 }
 
-@keyframes slideDownAndGrow {
+@keyframes rotate-in {
   0% {
     transform: perspective(700px) rotate3d(0, 1, 0, 90deg);
   }

@@ -51,10 +51,10 @@ button {
   width: 3rem;
   top: 0;
   left: 50%;
-  animation: comeAndGo 30s ease-in-out infinite;
+  animation: fly-left-right 30s ease-in-out infinite;
 }
 
-@keyframes comeAndGo {
+@keyframes fly-left-right {
   0% {
     transform: translateX(100vw) rotate(-90deg);
   }

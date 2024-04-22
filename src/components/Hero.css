@@ -8,7 +8,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   top: 6vh;
-  animation: upAndDownLoop 5s infinite;
+  animation: up-and-down 5s infinite;
 }
 
 .header-img {
@@ -21,7 +21,7 @@
   position: absolute;
 }
 
-@keyframes upAndDownLoop {
+@keyframes up-and-down {
   0% {
     transform: translateY(0);
   }
