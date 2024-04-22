@@ -63,7 +63,7 @@
     }
 }
 
-@media screen and (max-height: 790px) {
+@media screen and (height< 790px) {
     .container {
         font-size: 0.8rem;
         top: 45vh;
@@ -71,7 +71,7 @@
     }
 }
 
-@media screen and (height < 759px) and (width> 635px) {
+@media screen and (height < 759px) and (width> 635px) and (width < 1024px) {
     .container {
         font-size: 0.7rem;
         top: 20vh;

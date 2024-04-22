@@ -1,32 +1,26 @@
 .icons-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 60vw;
-    max-width: 250px;
-    position: absolute;
-    padding: 2rem;
-    gap: 1rem;
-    top: 45vh;
-    background-image: url('../assets/canvas-menu.webp');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    animation: slideDownAndGrow 300ms;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 60vw;
+  max-width: 250px;
+  position: absolute;
+  padding: 2rem;
+  gap: 1rem;
+  top: 45vh;
+  background-image: url("../assets/canvas-menu.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: slideDownAndGrow 300ms;
 }
 
 .menu-button {
-    filter: drop-shadow(-2px 2px 4px #000000);
+  filter: drop-shadow(-2px 2px 4px #000000);
 }
 
-
-
-@media screen and (max-height: 759px) and (width> 635px) {
-    
-    
-    .icons-container {
-        top: 10vh;
-        right: 10vh;
-    
-    }
-
+@media screen and (height< 759px) and (width> 635px) and (width < 1024px) {
+  .icons-container {
+    top: 10vh;
+    right: 25vh;
+  }
 }

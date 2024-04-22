@@ -1,113 +1,115 @@
 #blue-planet {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    width: 3rem;
-    z-index: -98;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  width: 3rem;
+  z-index: -98;
 }
 
 #cables {
-    position: absolute;
-    top: 25vh;
-    z-index: -98;
-    animation: moveCables 5s infinite;
+  position: absolute;
+  top: 25vh;
+  z-index: -98;
+  animation: moveCables 5s infinite;
 }
 
 #moon {
-    position: absolute;
-    top: 2vh;
-    right: 5vw;
-    width: 5rem;
-    z-index: -98;
+  position: absolute;
+  top: 2vh;
+  right: 5vw;
+  width: 5rem;
+  z-index: -98;
 }
 
 #purple-planet {
-    position: absolute;
-    top: 3rem;
-    left: 20%;
-    width: 3rem;
-    z-index: -98;
-    display: none;
+  position: absolute;
+  top: 3rem;
+  left: 20%;
+  width: 3rem;
+  z-index: -98;
+  display: none;
 }
 
 #red-planet {
-    position: absolute;
-    top: 2.5rem;
-    left: 1rem;
-    width: 3rem;
-    z-index: -98;
+  position: absolute;
+  top: 2.5rem;
+  left: 1rem;
+  width: 3rem;
+  z-index: -98;
 }
 
 #sky {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -100;
-    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -100;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 #space {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 438px;
-    background-image: url('./assets/bg-mob-top.webp');
-    background-size: contain;
-    background-position: center top;
-    background-repeat: no-repeat;
-    z-index: -99;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 438px;
+  background-image: url("./assets/bg-mob-top.webp");
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: -99;
 }
 
 #stars {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 20vh;
-    background-image: url('./assets/stars.webp');
-    background-size: contain;
-    z-index: -99;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20vh;
+  background-image: url("./assets/stars.webp");
+  background-size: contain;
+  z-index: -99;
 }
 
 @keyframes moveCables {
-    0% {
-        transform: scaleY(0.8) translateY(0)
-    }
+  0% {
+    transform: scaleY(0.8) translateY(0);
+  }
 
-    50% {
-        transform: scaleY(1) translateY(-1rem)
-    }
+  50% {
+    transform: scaleY(1) translateY(-1rem);
+  }
 
-    100% {
-        transform: scaleY(0.8) translateY(0)
-    }
+  100% {
+    transform: scaleY(0.8) translateY(0);
+  }
 }
 
-
 @keyframes slideDownAndGrow {
-    0% {
-        transform:  perspective(700px) rotate3d(0, 1, 0, 90deg);
-    }
+  0% {
+    transform: perspective(700px) rotate3d(0, 1, 0, 90deg);
+  }
 
-    100% {
-        transform:  perspective(700px) rotate3d(0, 1, 0, 0deg);
-    }
+  100% {
+    transform: perspective(700px) rotate3d(0, 1, 0, 0deg);
+  }
 }
 
 @media screen and (min-width: 635px) {
-    #space {
-        display: none;
-    }
+  #space {
+    display: none;
+  }
 
-    #purple-planet {
-        display: block;
-    }
+  #purple-planet {
+    display: block;
+  }
 }
 
-@media screen and (max-height: 759px) and (width> 635px) {
-    #cables {
-        animation: none;
-        transform: rotate(90deg);
-        z-index: -1;
-    }
+@media screen and (height< 759px) and (width> 635px) and (width < 1024px) {
+  #cables {
+    display: none;
+  }
 }
